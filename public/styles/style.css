@@ -4,4 +4,34 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
+
+body {
+  background-color: #444444;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+table,
+tr,
+td {
+  border: 1px solid white;
+  border-collapse: collapse;
+}
+
+td {
+  padding: 0.25em 0.5em;
+}
+
+table {
+  font-size: 1.25rem;
+}
 /*# sourceMappingURL=style.css.map */

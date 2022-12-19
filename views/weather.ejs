@@ -5,9 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%=djs.name%>-(<%=djs.sys.country%>)</title>
-    <link rel="stylesheet" href="/public/styles/style.css" />
+    <link rel="stylesheet" href="styles/style.css" />
   </head>
   <body>
     <h1><%=djs.name %> Weather:</h1>
+    <table>
+      <tr>
+        <td>Main Weather:</td>
+        <td><%=djs.weather[0].main %></td>
+      </tr>
+      <tr>
+        <td>Weather description:</td>
+        <td><%=djs.weather[0].description %></td>
+      </tr>
+
+      <tr>
+        <td>Temprature:</td>
+        <td><%=temp %></td>
+      </tr>
+    </table>
   </body>
 </html>

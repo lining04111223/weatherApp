@@ -9,6 +9,10 @@ const https = require("node:https");
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 
+function kToC(k) {
+  return (k - 273.15).toFixed(2);
+}
+
 app.get("/", (req, res) => {
   res.render("index.ejs");
 });
@@ -26,7 +30,8 @@ app.get("/:city", (req, res) => {
       response.on("data", (d) => {
         let djs = JSON.parse(d);
         console.log("djs", djs);
-        res.render("weather.ejs", { djs });
+        let temp = kToC(djs.main.temp);
+        res.render("weather.ejs", { djs, temp });
       });
     })
     .on("error", (e) => {

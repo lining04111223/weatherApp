@@ -3,3 +3,26 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  background-color: rgb(68, 68, 68);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+table,
+tr,
+td {
+  border: 1px solid white;
+  border-collapse: collapse;
+}
+
+td {
+  padding: 0.25em 0.5em;
+}
+
+table {
+  font-size: 1.25rem;
+}
