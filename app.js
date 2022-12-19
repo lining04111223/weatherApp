@@ -5,6 +5,7 @@ const express = require("express");
 const app = express();
 const ejs = require("ejs");
 const https = require("node:https");
+const fetch = require("node-fetch");
 
 app.set("view engine", "ejs");
 //app.use(express.urlencoded({ extended: true }));
@@ -23,20 +24,11 @@ app.get("/:id", (req, res) => {
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${id}&appid=${myKey}`;
   console.log(req.params);
   //get request made by node.js
-  https
-    .get(url, (response) => {
-      console.log("statusCode:", response.statusCode);
-      console.log("headers:", response.headers);
-
-      response.on("data", (d) => {
-        let djs = JSON.parse(d);
-        console.log("djs", djs);
-        let temp = kToC(djs.main.temp);
-        res.render("weather.ejs", { djs, temp });
-      });
-    })
-    .on("error", (e) => {
-      console.error(e);
+  fetch(url)
+    .then((d) => d.json())
+    .then((djs) => {
+      let temp = kToC(djs.main.temp);
+      res.render("weather.ejs", { djs, temp });
     });
 });
 
