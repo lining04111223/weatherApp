@@ -7,6 +7,7 @@ const ejs = require("ejs");
 const https = require("node:https");
 
 app.set("view engine", "ejs");
+//app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 function kToC(k) {
@@ -17,9 +18,9 @@ app.get("/", (req, res) => {
   res.render("index.ejs");
 });
 
-app.get("/:city", (req, res) => {
-  let { city } = req.params;
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${myKey}`;
+app.get("/:id", (req, res) => {
+  let { id } = req.params;
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${id}&appid=${myKey}`;
   console.log(req.params);
   //get request made by node.js
   https
@@ -39,6 +40,12 @@ app.get("/:city", (req, res) => {
     });
 });
 
-app.listen(3000, () => {
-  console.log("server is running on port 3000");
+app.post("/:id", (req, res) => {
+  console.log(req.body);
+  let id = req.body;
+  res.redirect(`/${id}`);
+});
+
+app.listen(3005, () => {
+  console.log("server is running on port 3005");
 });

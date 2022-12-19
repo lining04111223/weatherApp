@@ -4,10 +4,20 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="/public/styles/style.css" />
+    <title>Weather Check App</title>
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="shortcut icon" href="#" />
   </head>
   <body>
-    <h1>home page</h1>
+    <h1>Weather Check App</h1>
+    <div>
+      <div><h3>Check weather</h3></div>
+      <%let id;%>
+      <form action="<%= id %>" method="POST">
+        <label for="id">Input city name:</label>
+        <input type="text" name="id" />
+        <button type="submit">Submit</button>
+      </form>
+    </div>
   </body>
 </html>
